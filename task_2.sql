@@ -1,10 +1,8 @@
+
 -- Create the authors table
-CREATE TABLE IF NOT EXISTS authors (
+CREATE TABLE IF NOT EXISTS Authors (
     author_id INT AUTO_INCREMENT,
-    first_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    birth_date DATE,
-    biography TEXT,
+    author_name VARCHAR(255) NOT NULL,
     PRIMARY KEY (author_id)
 );
 
@@ -18,7 +16,7 @@ CREATE TABLE IF NOT EXISTS books (
     price DECIMAL(10, 2),
     stock_quantity INT,
     PRIMARY KEY (book_id),
-    FOREIGN KEY (author_id) REFERENCES authors(author_id)
+    FOREIGN KEY (author_id) REFERENCES Authors(author_id)
 );
 
 -- Create the customers table
@@ -53,3 +51,4 @@ CREATE TABLE IF NOT EXISTS order_details (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (book_id) REFERENCES books(book_id)
 );
+
